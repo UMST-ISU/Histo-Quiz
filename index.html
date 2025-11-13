@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Histology Quiz</title>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] }
+        }
+      }
+    }
+  </script>
+
+  <!-- MathJax for LaTeX (optional) -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    body{font-family:'Inter',sans-serif;background:#f7f9fb;}
+    .card{background:#fff;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,.06);}
+    .option-button{display:block;width:100%;text-align:left;padding:14px 16px;margin-bottom:10px;
+      border-radius:12px;border:1px solid #e5e7eb;background:#fff;transition:all .2s;cursor:pointer;font-size:1rem;}
+    .option-button:focus{outline:3px solid rgba(59,130,246,.35);outline-offset:1px;}
+    .option-button:hover:not([disabled]){background:#f3f4f6;border-color:#d1d5db;}
+    .correct-answer{background:#dcfce7 !important;border-color:#16a34a !important;font-weight:600;}
+    .incorrect-answer{background:#fee2e2 !important;border-color:#ef4444 !important;font-weight:600;}
+    .feedback-box{margin-top:12px;padding:12px;border-radius:12px;font-size:.95rem;}
+    .top-pill{font-weight:700;font-size:.95rem}
+    @media (max-width: 480px){
+      .option-button{font-size:1.05rem;padding:16px}
+      .h1-title{font-size:1.35rem}
+    }
+  </style>
+</head>
+<body class="p-3 md:p-6">
+
+<!-- ===== CENTERED LOGO HEADER ===== -->
+<div class="max-w-3xl mx-auto text-center mb-4 md:mb-6">
+  <img src="assets/logo.png" alt="EasyLearn Logo"
+       class="mx-auto mb-3 w-32 h-32 object-contain"
+       onerror="this.style.display='none'">
+  <h1 class="text-3xl md:text-4xl font-extrabold text-blue-700">Histology</h1>
+  <p class="text-sm text-gray-500 mt-1">Interactive Quiz Series</p>
+</div>
+
+<!-- ===== QUIZ HEADER (dynamic title from config) ===== -->
+<header id="quiz-header"
+        class="max-w-3xl mx-auto card p-5 md:p-7 mb-4 md:mb-6 bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 text-white">
+  <h1 class="h1-title text-2xl md:text-3xl font-extrabold text-center" id="quiz-title">Loading title…</h1>
+  <p class="text-center text-white/80 mt-2" id="quiz-subtitle">Loading configuration…</p>
+</header>
+
+<!-- ===== STATUS BAR ===== -->
+<div class="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+  <div class="card px-4 py-3 flex justify-between items-center">
+    <span class="top-pill text-gray-600">Question</span>
+    <span class="font-bold text-gray-900"><span id="current-q-index">0</span> / <span id="total-q-count">0</span></span>
+  </div>
+  <div class="card px-4 py-3 flex justify-between items-center">
+    <span class="top-pill text-gray-600">Score</span>
+    <span class="font-bold text-gray-900"><span id="score">0</span> / <span id="total-score">0</span></span>
+  </div>
+</div>
+
+<!-- ===== QUIZ BODY ===== -->
+<main class="max-w-3xl mx-auto" id="quiz-root">
+  <div id="quiz-content" class="mb-3">
+    <section class="card p-4 md:p-6 text-center">
+      <p class="text-gray-600 mb-2">Loading questions…</p>
+      <p class="text-xs text-gray-400">If this message stays, please check that <code>config.json</code> and <code>questions.json</code> are next to this HTML file.</p>
+    </section>
+  </div>
+
+  <!-- Controls -->
+  <div class="flex gap-3 mt-4">
+    <button id="prev-btn"
+            class="flex-1 px-4 py-3 bg-gray-200 text-gray-800 font-bold rounded-xl hover:bg-gray-300 transition disabled:opacity-50"
+            disabled>← Previous</button>
+    <button id="pause-btn"
+            class="px-4 py-3 bg-yellow-400 text-gray-900 font-bold rounded-xl hover:bg-yellow-500 transition flex-none">Pause</button>
+    <button id="next-btn"
+            class="flex-1 px-4 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition disabled:opacity-50"
+            disabled>Next →</button>
+  </div>
+</main>
+
+<!-- ===== RESULTS MODAL ===== -->
+<div id="results-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center p-4">
+  <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold mb-2 text-blue-700">Quiz Complete</h2>
+    <p class="text-gray-600 mb-4">Your final score</p>
+    <p id="final-score" class="text-4xl md:text-5xl font-extrabold text-green-600 mb-5 text-center">0 / 0</p>
+    <div class="space-y-1 text-sm text-gray-600 mb-5">
+      <p>Total Questions: <span id="modal-total"></span></p>
+      <p>Correct Answers: <span id="modal-correct"></span></p>
+      <p>Time per Question: <span id="modal-time">—</span> seconds</p>
+    </div>
+    <div class="flex gap-3">
+      <button id="restart-btn" class="flex-1 py-3 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition">Restart</button>
+      <button id="close-btn" class="flex-1 py-3 bg-gray-200 text-gray-800 font-bold rounded-xl hover:bg-gray-300 transition">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="mt-6 md:mt-8 text-center text-xs text-gray-500">
+  © <span id="year"></span> For educational purposes. Built with ♥ by Dr.Salaheldin Terair.
+</footer>
+
+<!-- ================== SCRIPT ================== -->
+<script>
+let CONFIG = {
+  title: "EasyLearn Quiz",
+  subtitle: "External JSON Template",
+  time_per_question: 90,
+  shuffle_questions: true,
+  shuffle_options: true,
+  show_timer: false
+};
+
+let quizData = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let answeredState = [];
+let timeLeft = 0;
+let timerId = null;
+let paused = false;
+
+/* DOM refs */
+const quizContent = document.getElementById('quiz-content');
+const scoreDisplay = document.getElementById('score');
+const totalScoreDisplay = document.getElementById('total-score');
+const currentQIndexDisplay = document.getElementById('current-q-index');
+const totalQCountDisplay = document.getElementById('total-q-count');
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
+const pauseBtn = document.getElementById('pause-btn');
+
+const resultsOverlay = document.getElementById('results-overlay');
+const finalScoreDisplay = document.getElementById('final-score');
+const modalTotal = document.getElementById('modal-total');
+const modalCorrect = document.getElementById('modal-correct');
+const modalTime = document.getElementById('modal-time');
+const closeBtn = document.getElementById('close-btn');
+const restartBtn = document.getElementById('restart-btn');
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Shuffle utility */
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* Timer */
+function startTimer() {
+  clearInterval(timerId);
+  timeLeft = CONFIG.time_per_question || 90;
+  modalTime.textContent = CONFIG.time_per_question || 90;
+  if (!CONFIG.show_timer) return; // no visible timer, but logic here if needed
+  timerId = setInterval(() => {
+    if (paused) return;
+    timeLeft--;
+    if (timeLeft <= 0) {
+      clearInterval(timerId);
+      lockQuestionOnTimeout();
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  paused = !paused;
+  pauseBtn.textContent = paused ? "Resume" : "Pause";
+  const optionsContainer = document.getElementById('options-container');
+  if (optionsContainer) {
+    Array.from(optionsContainer.children).forEach(btn => {
+      btn.disabled = paused || btn.disabled;
+    });
+  }
+}
+
+/* Rendering */
+function renderQuestion() {
+  if (!quizData.length) return;
+  if (currentQuestionIndex >= quizData.length) {
+    showResults();
+    return;
+  }
+  clearInterval(timerId);
+  paused = false;
+  pauseBtn.textContent = "Pause";
+
+  const q = quizData[currentQuestionIndex];
+  const userAns = answeredState[currentQuestionIndex];
+  const disabled = userAns !== null;
+
+  const optionsHtml = q.options.map((op, i) => {
+    let classes = 'option-button';
+    if (disabled) {
+      if (op === q.answer) classes += ' correct-answer';
+      else if (q.options[userAns] === op) classes += ' incorrect-answer';
+      else classes += ' bg-gray-50 text-gray-400 opacity-80';
+    }
+    return `<button class="${classes}" onclick="selectOption(this, ${i})" ${disabled ? 'disabled' : ''}>
+              <span class="font-mono text-sm mr-3 text-blue-500">${String.fromCharCode(65 + i)}</span>${op}
+            </button>`;
+  }).join('');
+
+  const feedbackHtml = disabled ? `
+    <div class="feedback-box bg-gray-100 border-l-4 border-blue-500">
+      <p class="font-bold text-lg mb-2 text-blue-700">Explanation:</p>
+      <p class="text-gray-700">${q.explanation || ''}</p>
+    </div>` : '';
+
+  quizContent.innerHTML = `
+    <section class="card p-4 md:p-6">
+      <h2 class="text-xl md:text-2xl font-semibold mb-4 text-gray-800">
+        Q${currentQuestionIndex + 1}: ${q.q}
+      </h2>
+      <div id="options-container" class="space-y-2">
+        ${optionsHtml}
+      </div>
+      <div id="feedback-container">${feedbackHtml}</div>
+    </section>`;
+
+  if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
+
+  currentQIndexDisplay.textContent = currentQuestionIndex + 1;
+  scoreDisplay.textContent = score;
+  prevBtn.disabled = currentQuestionIndex === 0;
+  nextBtn.disabled = !disabled;
+
+  if (!disabled) startTimer();
+}
+
+/* Selection handler */
+window.selectOption = (btn, idx) => {
+  const q = quizData[currentQuestionIndex];
+  const optionsContainer = document.getElementById('options-container');
+
+  if (answeredState[currentQuestionIndex] !== null || (CONFIG.show_timer && timeLeft <= 0)) return;
+
+  clearInterval(timerId);
+  Array.from(optionsContainer.children).forEach(b => b.disabled = true);
+
+  const selected = q.options[idx];
+  const isCorrect = selected === q.answer;
+  if (isCorrect) {
+    btn.classList.add('correct-answer');
+    score++;
+  } else {
+    btn.classList.add('incorrect-answer');
+    const correctIdx = q.options.indexOf(q.answer);
+    if (correctIdx > -1) optionsContainer.children[correctIdx].classList.add('correct-answer');
+  }
+  answeredState[currentQuestionIndex] = idx;
+  scoreDisplay.textContent = score;
+
+  document.getElementById('feedback-container').innerHTML = `
+    <div class="feedback-box ${isCorrect ? 'bg-green-100 border border-green-300' : 'bg-red-100 border border-red-300'}">
+      <p class="font-bold ${isCorrect ? 'text-green-700' : 'text-red-700'}">
+        ${isCorrect ? 'Correct!' : 'Incorrect.'}
+      </p>
+      <p class="text-gray-700 mt-1">${q.explanation || ''}</p>
+    </div>`;
+
+  nextBtn.disabled = false;
+  if (currentQuestionIndex === quizData.length - 1) nextBtn.textContent = "Finish Quiz";
+};
+
+/* Timeout handler */
+function lockQuestionOnTimeout() {
+  const q = quizData[currentQuestionIndex];
+  const optionsContainer = document.getElementById('options-container');
+  Array.from(optionsContainer.children).forEach(b => b.disabled = true);
+  const correctIdx = q.options.indexOf(q.answer);
+  if (correctIdx > -1) optionsContainer.children[correctIdx].classList.add('correct-answer');
+
+  document.getElementById('feedback-container').innerHTML = `
+    <div class="feedback-box bg-yellow-100 border border-yellow-300">
+      <p class="font-bold text-yellow-700">Time's up!</p>
+      <p class="text-gray-700">Correct: <span class="font-semibold">${q.answer}</span></p>
+    </div>`;
+
+  nextBtn.disabled = false;
+  if (currentQuestionIndex === quizData.length - 1) nextBtn.textContent = "Finish Quiz";
+}
+
+/* Navigation */
+function nextQuestion() {
+  clearInterval(timerId);
+  if (currentQuestionIndex < quizData.length - 1) {
+    currentQuestionIndex++;
+    renderQuestion();
+  } else {
+    showResults();
+  }
+}
+
+prevBtn.addEventListener('click', () => {
+  clearInterval(timerId);
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    renderQuestion();
+  }
+});
+
+nextBtn.addEventListener('click', nextQuestion);
+pauseBtn.addEventListener('click', pauseTimer);
+
+/* Results */
+function showResults() {
+  clearInterval(timerId);
+  finalScoreDisplay.textContent = `${score} / ${quizData.length}`;
+  modalTotal.textContent = quizData.length;
+  modalCorrect.textContent = score;
+  resultsOverlay.classList.remove('hidden');
+  resultsOverlay.classList.add('flex');
+}
+
+closeBtn.addEventListener('click', () => {
+  resultsOverlay.classList.add('hidden');
+  resultsOverlay.classList.remove('flex');
+});
+
+restartBtn.addEventListener('click', () => {
+  resultsOverlay.classList.add('hidden');
+  resultsOverlay.classList.remove('flex');
+  currentQuestionIndex = 0;
+  score = 0;
+  answeredState = new Array(quizData.length).fill(null);
+  if (CONFIG.shuffle_questions) {
+    quizData = shuffle(quizData);
+  }
+  totalQCountDisplay.textContent = quizData.length;
+  totalScoreDisplay.textContent = quizData.length;
+  nextBtn.textContent = "Next →";
+  renderQuestion();
+});
+
+/* Config + questions loading */
+async function loadConfigAndQuestions() {
+  try {
+    const cfgRes = await fetch('config.json');
+    if (cfgRes.ok) {
+      const cfg = await cfgRes.json();
+      CONFIG = Object.assign(CONFIG, cfg);
+    }
+
+    document.getElementById('quiz-title').textContent = CONFIG.title || 'EasyLearn Quiz';
+    document.getElementById('quiz-subtitle').textContent = CONFIG.subtitle || 'Interactive MCQ Quiz';
+    modalTime.textContent = CONFIG.time_per_question || 90;
+
+    const qRes = await fetch('questions.json');
+    if (!qRes.ok) throw new Error('questions.json not found');
+    const rawQuestions = await qRes.json();
+
+    quizData = rawQuestions.map(q => {
+      const options = CONFIG.shuffle_options ? shuffle(q.options) : q.options;
+      return {
+        q: q.q,
+        options,
+        answer: q.answer,
+        explanation: q.explanation || ''
+      };
+    });
+
+    if (CONFIG.shuffle_questions) {
+      quizData = shuffle(quizData);
+    }
+
+    answeredState = new Array(quizData.length).fill(null);
+    totalQCountDisplay.textContent = quizData.length;
+    totalScoreDisplay.textContent = quizData.length;
+
+    renderQuestion();
+  } catch (err) {
+    console.error(err);
+    quizContent.innerHTML = `
+      <section class="card p-4 md:p-6 text-center">
+        <h2 class="text-lg font-semibold text-red-600 mb-2">Error loading quiz files</h2>
+        <p class="text-gray-600 mb-2">Please make sure <code>config.json</code> and <code>questions.json</code> are in the same folder as this HTML file.</p>
+        <p class="text-xs text-gray-400 mt-2">${err.message}</p>
+      </section>`;
+  }
+}
+
+/* INIT */
+window.onload = () => {
+  loadConfigAndQuestions();
+};
+</script>
+</body>
+</html>

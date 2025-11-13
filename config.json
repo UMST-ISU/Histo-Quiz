@@ -1,0 +1,8 @@
+{
+  "title": "Hitology Quiz",
+  "subtitle": "Replace questions.json with your own bank",
+  "time_per_question": 90,
+  "shuffle_questions": true,
+  "shuffle_options": true,
+  "show_timer": false
+}

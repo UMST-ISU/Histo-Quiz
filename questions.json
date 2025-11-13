@@ -1,0 +1,497 @@
+[
+  {
+    "q": "Which of the following cells is the primary structural support cell of most lymphoid organs (except the thymus)?",
+    "options": [
+      "Macrophages",
+      "Reticular cells",
+      "Plasma cells",
+      "Dendritic cells"
+    ],
+    "answer": "Reticular cells",
+    "explanation": "Reticular cells form the supporting reticular fiber network (stroma) in most lymphoid organs; in contrast, the thymus has an epithelial reticular cell framework rather than typical reticular fibers."
+  },
+  {
+    "q": "B lymphocytes become immunocompetent in the:",
+    "options": [
+      "Thymus",
+      "Bone marrow",
+      "Spleen",
+      "Lymph nodes"
+    ],
+    "answer": "Bone marrow",
+    "explanation": "Bone marrow is a primary lymphoid organ and the site where B cells mature and differentiate into immunocompetent cells capable of participating in humoral immunity."
+  },
+  {
+    "q": "A 7-year-old child underwent thymectomy after trauma. Which immune function will be most affected long-term?",
+    "options": [
+      "Antibody secretion",
+      "NK cell activity",
+      "T-cell maturation",
+      "Phagocytosis of microbes"
+    ],
+    "answer": "T-cell maturation",
+    "explanation": "The thymus is the essential site for T-lymphocyte education and maturation; its removal early in life reduces the pool of naïve T cells available for cell-mediated immunity."
+  },
+  {
+    "q": "Which of the following accurately describes a germinal center in a lymph node?",
+    "options": [
+      "Site of T-cell maturation",
+      "Area rich in macrophages only",
+      "Contains proliferating B cells",
+      "Surrounded by Hassall’s corpuscles"
+    ],
+    "answer": "Contains proliferating B cells",
+    "explanation": "Germinal centers are present in the outer cortex of lymph nodes and represent sites where B lymphocytes proliferate and differentiate during immune responses."
+  },
+  {
+    "q": "Which lymphoid organ contains both afferent and efferent lymphatic vessels?",
+    "options": [
+      "Spleen",
+      "Thymus",
+      "Lymph node",
+      "Tonsil"
+    ],
+    "answer": "Lymph node",
+    "explanation": "The lymph node is the only lymphatic organ with both afferent and efferent lymphatic vessels, allowing lymph to enter, be filtered, and then exit the node."
+  },
+  {
+    "q": "The Periarteriolar Lymphoid Sheath (PALS) in the spleen is predominantly composed of:",
+    "options": [
+      "B lymphocytes",
+      "Plasma cells",
+      "T lymphocytes",
+      "NK cells"
+    ],
+    "answer": "T lymphocytes",
+    "explanation": "PALS surrounds the central arteries in the white pulp of the spleen and is rich in T lymphocytes, forming the T-cell zone of the spleen."
+  },
+  {
+    "q": "A patient presents with recurrent respiratory infections. Biopsy shows loss of epithelial crypts and lymphoid follicles. Which structure is affected?",
+    "options": [
+      "Spleen",
+      "Palatine tonsil",
+      "Peyer’s patches",
+      "Thymus"
+    ],
+    "answer": "Palatine tonsil",
+    "explanation": "Palatine tonsils have stratified squamous epithelium with deep crypts and abundant lymphoid follicles; loss of these structures impairs local mucosal immunity in the oropharynx."
+  },
+  {
+    "q": "Which cell type is responsible for antigen capture and presentation to T lymphocytes?",
+    "options": [
+      "Reticular cell",
+      "Dendritic cell",
+      "NK cell",
+      "Plasma cell"
+    ],
+    "answer": "Dendritic cell",
+    "explanation": "Dendritic cells are potent antigen-presenting cells that capture antigens and present them to T lymphocytes, initiating adaptive immune responses."
+  },
+  {
+    "q": "Which feature is characteristic of the thymic medulla?",
+    "options": [
+      "Germinal centers",
+      "Hassall’s corpuscles",
+      "Reticular fibers",
+      "B-cell proliferation"
+    ],
+    "answer": "Hassall’s corpuscles",
+    "explanation": "Hassall’s corpuscles are whorled structures formed by degenerating epithelial reticular cells and are a classic histological feature of the thymic medulla."
+  },
+  {
+    "q": "In which part of the lymph node are T lymphocytes most concentrated?",
+    "options": [
+      "Outer cortex",
+      "Medullary cords",
+      "Paracortex",
+      "Subcapsular sinus"
+    ],
+    "answer": "Paracortex",
+    "explanation": "The paracortex (inner cortex) of the lymph node is rich in T lymphocytes and is referred to as the T-cell–dependent zone."
+  },
+  {
+    "q": "A 20-year-old male with typhoid fever develops ulceration of the distal ileum. Which structure is primarily affected?",
+    "options": [
+      "Palatine tonsil",
+      "Peyer’s patches",
+      "Lymph node",
+      "BALT"
+    ],
+    "answer": "Peyer’s patches",
+    "explanation": "Peyer’s patches are aggregated lymphoid nodules in the ileum targeted and inflamed in typhoid fever, leading to ulceration and potential perforation."
+  },
+  {
+    "q": "The red pulp of the spleen functions primarily to:",
+    "options": [
+      "Generate T lymphocytes",
+      "Filter blood and remove old red blood cells",
+      "Produce antibodies",
+      "House the central artery"
+    ],
+    "answer": "Filter blood and remove old red blood cells",
+    "explanation": "Red pulp contains sinusoids and cords rich in macrophages that filter blood and remove old or damaged red blood cells from circulation."
+  },
+  {
+    "q": "Which epithelium lines the pharyngeal tonsil?",
+    "options": [
+      "Stratified squamous only",
+      "Simple columnar",
+      "Ciliated pseudostratified columnar",
+      "Transitional"
+    ],
+    "answer": "Ciliated pseudostratified columnar",
+    "explanation": "The pharyngeal tonsil is covered mainly by respiratory epithelium (ciliated pseudostratified columnar), appropriate for its location in the nasopharynx."
+  },
+  {
+    "q": "Which of the following best describes NK cells?",
+    "options": [
+      "Require antigen presentation to become active",
+      "Are part of adaptive immunity",
+      "Kill virus-infected cells without prior sensitization",
+      "Are found only in secondary lymphoid organs"
+    ],
+    "answer": "Kill virus-infected cells without prior sensitization",
+    "explanation": "Natural killer (NK) cells are innate immune cells that can kill virus-infected and tumor cells without prior sensitization or antigen-specific receptors."
+  },
+  {
+    "q": "A biopsy of lymphoid tissue shows diffuse lymphocytes in the lamina propria without a capsule. What is the best classification?",
+    "options": [
+      "Lymph node",
+      "Spleen",
+      "MALT",
+      "Thymus"
+    ],
+    "answer": "MALT",
+    "explanation": "Mucosa-associated lymphoid tissue (MALT) consists of diffuse or nodular lymphoid tissue in mucosal sites and typically lacks a complete capsule."
+  },
+  {
+    "q": "Which epithelium lines most of the conducting portion of the respiratory tract?",
+    "options": [
+      "Simple squamous",
+      "Pseudostratified ciliated columnar with goblet cells",
+      "Stratified squamous keratinized",
+      "Simple cuboidal without cilia"
+    ],
+    "answer": "Pseudostratified ciliated columnar with goblet cells",
+    "explanation": "Most of the conducting airways from nasal cavity to bronchi are lined by respiratory epithelium, which is pseudostratified ciliated columnar with goblet cells."
+  },
+  {
+    "q": "Goblet cells disappear completely at the level of the:",
+    "options": [
+      "Secondary bronchi",
+      "Terminal bronchioles",
+      "Primary bronchi",
+      "Trachea"
+    ],
+    "answer": "Terminal bronchioles",
+    "explanation": "Goblet cells are absent in terminal bronchioles, although cilia persist to help clear mucus from reaching the respiratory portion."
+  },
+  {
+    "q": "Which cell type secretes surfactant in the alveoli?",
+    "options": [
+      "Type I pneumocytes",
+      "Type II pneumocytes",
+      "Clara (Club) cells",
+      "Alveolar macrophages"
+    ],
+    "answer": "Type II pneumocytes",
+    "explanation": "Type II pneumocytes are cuboidal cells containing lamellar bodies that produce surfactant, reducing surface tension and preventing alveolar collapse."
+  },
+  {
+    "q": "A premature newborn develops respiratory distress shortly after birth. Which histological defect explains the condition?",
+    "options": [
+      "Absence of cilia in terminal bronchioles",
+      "Immature type II pneumocytes",
+      "Loss of type I pneumocytes",
+      "Overproduction of mucus"
+    ],
+    "answer": "Immature type II pneumocytes",
+    "explanation": "Respiratory distress syndrome in premature infants is mainly due to surfactant deficiency from immature type II pneumocytes."
+  },
+  {
+    "q": "Which structure contains C-shaped hyaline cartilage rings?",
+    "options": [
+      "Secondary bronchi",
+      "Trachea",
+      "Terminal bronchioles",
+      "Respiratory bronchioles"
+    ],
+    "answer": "Trachea",
+    "explanation": "The trachea is supported by C-shaped rings of hyaline cartilage with the trachealis muscle bridging the open posterior ends."
+  },
+  {
+    "q": "Clara (Club) cells are most characteristic of which structure?",
+    "options": [
+      "Trachea",
+      "Secondary bronchi",
+      "Terminal bronchioles",
+      "Alveolar sacs"
+    ],
+    "answer": "Terminal bronchioles",
+    "explanation": "Clara cells are dome-shaped, non-ciliated secretory cells abundant in terminal bronchioles, where they protect and regenerate the bronchiolar epithelium."
+  },
+  {
+    "q": "Which feature distinguishes respiratory bronchioles from terminal bronchioles?",
+    "options": [
+      "Presence of smooth muscle",
+      "Presence of elastic fibers",
+      "Presence of alveoli opening into their walls",
+      "Lining with ciliated simple cuboidal epithelium"
+    ],
+    "answer": "Presence of alveoli opening into their walls",
+    "explanation": "Respiratory bronchioles mark the transition from conducting to respiratory portions and are characterized by scattered alveoli budding from their walls."
+  },
+  {
+    "q": "The mucociliary escalator is primarily produced by:",
+    "options": [
+      "Ciliated cells in the respiratory epithelium",
+      "Clara cells",
+      "Type I pneumocytes",
+      "Brush cells"
+    ],
+    "answer": "Ciliated cells in the respiratory epithelium",
+    "explanation": "Coordinated beating of cilia on respiratory epithelial cells moves mucus and trapped particles toward the pharynx for clearance."
+  },
+  {
+    "q": "A chronic smoker develops persistent cough. Biopsy shows replacement of ciliated pseudostratified epithelium by stratified squamous epithelium. This is an example of:",
+    "options": [
+      "Hyperplasia",
+      "Metaplasia",
+      "Dysplasia",
+      "Neoplasia"
+    ],
+    "answer": "Metaplasia",
+    "explanation": "Smoking can induce squamous metaplasia, a reversible change in which one differentiated epithelial type is replaced by another better suited to chronic irritation."
+  },
+  {
+    "q": "Which structure lacks both glands and cartilage?",
+    "options": [
+      "Trachea",
+      "Primary bronchi",
+      "Bronchioles",
+      "Secondary bronchi"
+    ],
+    "answer": "Bronchioles",
+    "explanation": "Bronchioles have no cartilage plates and no submucosal glands; their walls are dominated by smooth muscle and elastic fibers."
+  },
+  {
+    "q": "Which epithelium lines the true vocal cords?",
+    "options": [
+      "Pseudostratified ciliated columnar",
+      "Simple columnar",
+      "Stratified squamous non-keratinized",
+      "Simple squamous"
+    ],
+    "answer": "Stratified squamous non-keratinized",
+    "explanation": "The true vocal cords are subject to friction and vibration and are therefore lined by non-keratinized stratified squamous epithelium for protection."
+  },
+  {
+    "q": "The olfactory epithelium differs from respiratory epithelium because it:",
+    "options": [
+      "Contains goblet cells",
+      "Has Bowman's glands in the epithelium",
+      "Contains bipolar sensory neurons",
+      "Is simple squamous"
+    ],
+    "answer": "Contains bipolar sensory neurons",
+    "explanation": "Olfactory epithelium is a specialized pseudostratified neuroepithelium that contains bipolar olfactory receptor neurons, sustentacular cells, and basal cells, but no goblet cells."
+  },
+  {
+    "q": "Intrapulmonary bronchi are distinguished by the presence of:",
+    "options": [
+      "C-shaped cartilage",
+      "Plates of hyaline cartilage",
+      "No smooth muscle",
+      "Stratified squamous epithelium"
+    ],
+    "answer": "Plates of hyaline cartilage",
+    "explanation": "Intrapulmonary bronchi contain irregular plates of hyaline cartilage in their walls rather than the C-shaped rings found in the trachea."
+  },
+  {
+    "q": "A patient with chronic sinusitis is found to have immotile cilia. Which complication is most directly related to this defect?",
+    "options": [
+      "Excess surfactant",
+      "Impaired drainage of paranasal sinuses",
+      "Thickening of alveolar septa",
+      "Loss of type I pneumocytes"
+    ],
+    "answer": "Impaired drainage of paranasal sinuses",
+    "explanation": "Paranasal sinuses rely on ciliary movement to drain mucus into the nasal cavity; immotile cilia lead to mucus retention and chronic sinusitis."
+  },
+  {
+    "q": "Which component of the alveolar wall forms the major part of the blood–air barrier?",
+    "options": [
+      "Type II pneumocyte cytoplasm",
+      "Endothelial basement membrane",
+      "Type I pneumocyte",
+      "Alveolar macrophage"
+    ],
+    "answer": "Type I pneumocyte",
+    "explanation": "Type I pneumocytes are thin squamous cells covering about 95% of the alveolar surface area and form the principal epithelial component of the blood–air barrier."
+  },
+  {
+    "q": "Which layer of a blood vessel contains the internal elastic membrane?",
+    "options": [
+      "Tunica externa",
+      "Tunica media",
+      "Tunica intima",
+      "Basement membrane"
+    ],
+    "answer": "Tunica intima",
+    "explanation": "The internal elastic membrane is a fenestrated sheet of elastin that separates the tunica intima from the tunica media, especially prominent in larger arteries."
+  },
+  {
+    "q": "The tunica media is characteristically thickest in which type of vessel?",
+    "options": [
+      "Medium veins",
+      "Elastic arteries",
+      "Postcapillary venules",
+      "Lymphatic vessels"
+    ],
+    "answer": "Elastic arteries",
+    "explanation": "Elastic arteries such as the aorta have a very thick tunica media with numerous elastic lamellae to withstand and dampen high pulsatile pressure."
+  },
+  {
+    "q": "Which vessel type contains only endothelium and pericytes, with no smooth muscle?",
+    "options": [
+      "Arterioles",
+      "Postcapillary venules",
+      "Small veins",
+      "Muscular venules"
+    ],
+    "answer": "Postcapillary venules",
+    "explanation": "Postcapillary venules are composed of an endothelial lining and pericytes without smooth muscle; they are the primary site of leukocyte emigration during inflammation."
+  },
+  {
+    "q": "A patient with portal hypertension shows easy passage of blood cells into the liver parenchyma. Which capillary type is most consistent with this?",
+    "options": [
+      "Continuous",
+      "Fenestrated",
+      "Discontinuous",
+      "Transitional"
+    ],
+    "answer": "Discontinuous",
+    "explanation": "Discontinuous (sinusoidal) capillaries in the liver have large gaps and a discontinuous basal lamina, allowing passage of blood cells and large molecules."
+  },
+  {
+    "q": "Which vessel type has a well-developed internal and external elastic membrane?",
+    "options": [
+      "Muscular arteries",
+      "Arterioles",
+      "Medium veins",
+      "Fenestrated capillaries"
+    ],
+    "answer": "Muscular arteries",
+    "explanation": "Muscular arteries show prominent internal and external elastic membranes flanking a thick smooth muscle tunica media, allowing regulation of blood flow to organs."
+  },
+  {
+    "q": "Which of the following is a key function of the tunica externa?",
+    "options": [
+      "Controls vasoconstriction",
+      "Serves as primary exchange surface",
+      "Houses vasa vasorum and nervi vasorum",
+      "Creates blood-air barrier"
+    ],
+    "answer": "Houses vasa vasorum and nervi vasorum",
+    "explanation": "The tunica externa contains small vessels (vasa vasorum) that supply the outer wall and nerves (nervi vasorum) that regulate smooth muscle contraction."
+  },
+  {
+    "q": "A biopsy from a lower limb artery shows many layers of smooth muscle with a small lumen and minimal elastic tissue. Which vessel is this most likely?",
+    "options": [
+      "Elastic artery",
+      "Muscular artery",
+      "Large vein",
+      "Arteriole"
+    ],
+    "answer": "Muscular artery",
+    "explanation": "Muscular arteries have a thick smooth muscle tunica media relative to lumen size and less elastic tissue than elastic arteries; they distribute blood to specific organs."
+  },
+  {
+    "q": "Which structure in the heart electrically insulates the atria from the ventricles?",
+    "options": [
+      "Endocardium",
+      "Intercalated discs",
+      "Cardiac fibrous skeleton",
+      "Purkinje fibers"
+    ],
+    "answer": "Cardiac fibrous skeleton",
+    "explanation": "The cardiac fibrous skeleton is dense connective tissue that supports valve orifices and electrically insulates the atria from the ventricles, ensuring coordinated conduction."
+  },
+  {
+    "q": "Purkinje fibers differ from typical cardiac muscle fibers because they:",
+    "options": [
+      "Are arranged in fascicles with abundant collagen",
+      "Contain numerous myofibrils",
+      "Are pale staining due to high glycogen content",
+      "Are found only in the atria"
+    ],
+    "answer": "Are pale staining due to high glycogen content",
+    "explanation": "Purkinje fibers are specialized conduction cells that stain pale because they contain abundant glycogen and fewer myofibrils than contractile cardiomyocytes."
+  },
+  {
+    "q": "Which type of capillary is found in kidney glomeruli?",
+    "options": [
+      "Continuous",
+      "Fenestrated",
+      "Discontinuous",
+      "Lymphatic"
+    ],
+    "answer": "Fenestrated",
+    "explanation": "Fenestrated capillaries in the kidney glomeruli allow rapid filtration of plasma through their pores while retaining cells and large proteins."
+  },
+  {
+    "q": "A patient with long-standing hypertension shows thickening of the arteriolar wall. Which structural change is most expected?",
+    "options": [
+      "Loss of pericytes",
+      "Increased smooth muscle in tunica media",
+      "Disappearance of internal elastic membrane",
+      "Replacement of endothelium with stratified epithelium"
+    ],
+    "answer": "Increased smooth muscle in tunica media",
+    "explanation": "Arterioles respond to chronic high pressure with hypertrophy of smooth muscle in the tunica media, increasing vascular resistance."
+  },
+  {
+    "q": "Which part of the heart wall contains Purkinje fibers?",
+    "options": [
+      "Epicardium",
+      "Endocardium (subendocardial layer)",
+      "Myocardium",
+      "Fibrous skeleton"
+    ],
+    "answer": "Endocardium (subendocardial layer)",
+    "explanation": "Purkinje fibers are located within the subendocardial layer beneath the endocardial surface, where they conduct impulses rapidly through the ventricles."
+  },
+  {
+    "q": "What structure provides tensile strength in cardiac valves?",
+    "options": [
+      "Spongiosa",
+      "Ventricularis",
+      "Fibrosa",
+      "Myocardium"
+    ],
+    "answer": "Fibrosa",
+    "explanation": "The fibrosa layer of cardiac valves is composed of dense collagen and forms the strong structural core, continuous with the fibrous skeleton."
+  },
+  {
+    "q": "A patient with liver disease has reduced production of plasma proteins, leading to edema. Which capillary type would allow the greatest leakage of proteins?",
+    "options": [
+      "Continuous",
+      "Fenestrated",
+      "Discontinuous",
+      "Muscular"
+    ],
+    "answer": "Discontinuous",
+    "explanation": "Discontinuous (sinusoidal) capillaries, such as those in the liver, have large gaps and a discontinuous basal lamina, allowing proteins to move freely between blood and tissue."
+  },
+  {
+    "q": "Which vessel type is the primary site of peripheral resistance regulation?",
+    "options": [
+      "Elastic arteries",
+      "Venules",
+      "Muscular arteries",
+      "Arterioles"
+    ],
+    "answer": "Arterioles",
+    "explanation": "Arterioles have relatively thick smooth muscle walls for their small lumen and are the main regulators of systemic vascular resistance and blood pressure."
+  }
+]

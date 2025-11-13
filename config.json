@@ -1,5 +1,6 @@
 {
   "title": "Hitology Quiz",
+  "subtitle": "Flexible Interactive MCQ Quiz",
   "time_per_question": 90,
   "shuffle_questions": true,
   "shuffle_options": true,
